@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap');
 
 :root {
   --bg: #FDFAF0;
@@ -282,6 +282,25 @@ main {
   box-shadow: 0 20px 45px rgba(15, 35, 54, 0.06);
 }
 
+.wine-card-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  height: 100%;
+}
+
+.wine-card-link article {
+  height: 100%;
+}
+
+.wine-card--white {
+  --wine-title-color: #7f9d76;
+}
+
+.wine-card--red {
+  --wine-title-color: #a33a50;
+}
+
 .wine-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 24px 50px rgba(15, 35, 54, 0.12);
@@ -300,18 +319,152 @@ main {
 }
 
 .wine-content {
-  padding: 2rem;
+  padding: 1.75rem 1.75rem 2rem;
+  text-align: center;
 }
 
 .wine-content h2 {
-  margin: 0 0 0.85rem;
-  font-size: 1.75rem;
+  margin: 0.1rem 0 0.35rem;
+  font-size: 1.55rem;
+  text-transform: uppercase;
+  font-family: 'Cinzel', serif;
+  color: var(--wine-title-color, var(--text));
+  letter-spacing: 0.06em;
 }
 
-.wine-content p {
+.wine-label-brand {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.wine-label-year {
+  margin: 0.25rem 0 0;
+  font-family: 'Cinzel', serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.14em;
+  color: var(--wine-title-color, var(--text));
+}
+
+.wine-content p:not(.wine-label-brand):not(.wine-label-year) {
   margin: 0;
   color: var(--muted);
   line-height: 1.75;
+}
+
+.wine-card--white .wine-content {
+  background: linear-gradient(180deg, rgba(127, 157, 118, 0.08), rgba(255, 255, 255, 0));
+}
+
+.wine-card--red .wine-content {
+  background: linear-gradient(180deg, rgba(163, 58, 80, 0.08), rgba(255, 255, 255, 0));
+}
+
+.wine-detail-page {
+  padding: 4rem 0 5rem;
+}
+
+.wine-detail-page--white {
+  --wine-title-color: #7f9d76;
+}
+
+.wine-detail-page--red {
+  --wine-title-color: #a33a50;
+}
+
+.wine-detail-hero {
+  padding: 0 0 2rem;
+}
+
+.wine-detail-hero .hero-content {
+  max-width: 780px;
+}
+
+.wine-detail-title {
+  margin: 0;
+  text-transform: uppercase;
+  font-family: 'Cinzel', serif;
+  color: var(--wine-title-color, var(--text));
+  letter-spacing: 0.06em;
+}
+
+.wine-detail-hero h1.wine-detail-title {
+  font-size: clamp(2.75rem, 5vw, 4.5rem);
+  line-height: 1.05;
+  margin-bottom: 1.25rem;
+}
+
+.wine-detail-section {
+  padding: 0 0 1rem;
+}
+
+.wine-detail-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.9fr) minmax(320px, 1.1fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid rgba(46, 79, 107, 0.1);
+  border-radius: 2rem;
+  box-shadow: 0 20px 45px rgba(15, 35, 54, 0.06);
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.wine-detail-visual {
+  background: #fbfaf3;
+  border-radius: 1.5rem;
+  padding: clamp(1rem, 3vw, 2rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+}
+
+.wine-detail-visual img {
+  width: 100%;
+  max-width: 470px;
+  height: auto;
+  object-fit: contain;
+}
+
+.wine-detail-content {
+  padding: clamp(0.5rem, 1vw, 0.75rem) 0;
+}
+
+.wine-detail-kicker {
+  margin: 0 0 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.8rem;
+  color: var(--primary);
+}
+
+.wine-detail-content h2 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.05;
+}
+
+.wine-detail-content p {
+  margin: 0 0 1.1rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.wine-detail-notes {
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.wine-detail-notes li {
+  padding-left: 1rem;
+  border-left: 3px solid var(--wine-title-color, var(--primary));
+  color: var(--text);
 }
 
 .button {
@@ -588,6 +741,10 @@ main {
     grid-template-columns: 1fr;
   }
 
+  .wine-detail-layout {
+    grid-template-columns: 1fr;
+  }
+
   .footer-grid {
     grid-template-columns: 1fr;
   }
@@ -696,6 +853,27 @@ main {
 
   .wine-content h2 {
     font-size: 1.45rem;
+  }
+
+  .wine-detail-page {
+    padding: 2.5rem 0 4rem;
+  }
+
+  .wine-detail-layout {
+    padding: 1rem;
+    border-radius: 1.5rem;
+  }
+
+  .wine-detail-visual {
+    padding: 1rem;
+  }
+
+  .wine-detail-content h2 {
+    font-size: 1.9rem;
+  }
+
+  .wine-detail-content p {
+    font-size: 1rem;
   }
 
   .contact-card {
